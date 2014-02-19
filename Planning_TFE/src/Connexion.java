@@ -9,6 +9,11 @@ import javax.naming.directory.Attributes;
 import javax.naming.directory.SearchControls;
 import javax.naming.directory.SearchResult;
 
+/**
+ * La classepermettant le connexion au serveur LDAP
+ * @author WAFA
+ *
+ */
 public class Connexion {
 	
 	 static Hashtable env ;
