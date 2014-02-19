@@ -22,7 +22,7 @@ import com.toedter.calendar.JDateChooser;
 
 public class Enseignant {
 
-	private JFrame frame;
+	JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -112,7 +112,7 @@ public class Enseignant {
 		panel_1.add(lblVeuillezConfirmerLa);
 		
 		JRadioButton rdbtnConfirmerLaDate = new JRadioButton("Confirmer la date");
-		rdbtnConfirmerLaDate.setBounds(92, 82, 109, 23);
+		rdbtnConfirmerLaDate.setBounds(92, 82, 151, 23);
 		panel_1.add(rdbtnConfirmerLaDate);
 		
 		JRadioButton rdbtnChoisirUneAutre = new JRadioButton("Choisir une autre date");
@@ -122,5 +122,10 @@ public class Enseignant {
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(277, 113, 161, 20);
 		panel_1.add(dateChooser);
+	}
+
+	public void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
 	}
 }
