@@ -10,11 +10,11 @@ import javax.naming.directory.SearchControls;
 import javax.naming.directory.SearchResult;
 
 /**
- * La classepermettant le connexion au serveur LDAP
+ * La classe permettant le connexion au serveur LDAP
  * @author WAFA
  *
  */
-public class Connexion {
+public class Connexion_LDAP {
 	
 	 static Hashtable env ;
 	 static DirContext ctx ;
@@ -22,7 +22,7 @@ public class Connexion {
 	static String passwd;
 	 static String base = "dc=ec-nantes,dc=fr";
     static String filter = "(cn~=imen)"; 
-	 public Connexion(String login, String passwd){
+	 public Connexion_LDAP(String login, String passwd){
 		 this.login=login;
 		 this.passwd=passwd;
 	 }
@@ -42,7 +42,7 @@ public class Connexion {
 			ctx = new InitialDirContext(env);
 		// fermeture de la connexion	
 		} catch (Exception e) {
-			System.out.println("EX2");
+			System.out.println("marche");
 			e.getMessage();
 		}
 	}
