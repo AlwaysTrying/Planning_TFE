@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.util.Enumeration;
 import java.util.Hashtable;
+
 import javax.naming.*;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
@@ -19,14 +20,15 @@ public class Connexion_LDAP {
 	 static Hashtable env ;
 	 static DirContext ctx ;
 	 static String login;
-	static String passwd;
+	 static String passwd;
 	 static String base = "dc=ec-nantes,dc=fr";
-    static String filter = "(cn~=imen)"; 
+     static String filter = "(cn~=imen)"; 
 	 public Connexion_LDAP(String login, String passwd){
 		 this.login=login;
 		 this.passwd=passwd;
 	 }
 	 
+	@SuppressWarnings("rawtypes")
 	public static void connect() throws NamingException{
 		env= new Hashtable();
 		

@@ -127,10 +127,17 @@ public class Identification {
 					{
 					 // JOptionPane.showMessageDialog(null, "Correcte ! ");
 			            Enseignant enseignant = new Enseignant();
-			            System.out.println("ww");
+			            System.out.println("enseignant inscrit");
 			            enseignant.frame.setVisible(true);			            
 					}
 					else 
+						if (login.equals("responsable") && mot_de_passe.equals("responsable"))
+						{
+						 // JOptionPane.showMessageDialog(null, "Correcte ! ");
+				          Responsable1_Importer_donnes responsable= new Responsable1_Importer_donnes();
+				            System.out.println("responsable inscrit");
+				            responsable.frame.setVisible(true);			            
+						}
 						System.out.println("nn");
 					}
 				catch(Exception e){
@@ -140,7 +147,8 @@ public class Identification {
 		});
 		
 		
-		/***
+		/***Pour la connexion apres de la base 
+		 * nous utilisons ce bout de code
 		 *  try{
        
         Rs = St.executeQuery("Select * From acceuil WHERE nom = '"+nom.getText()+"'");
@@ -174,7 +182,7 @@ public class Identification {
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(Identification.class.getResource("/Icons/icon_ECN.JPG")));
-		lblNewLabel_1.setBounds(24, 11, 107, 129);
+		lblNewLabel_1.setBounds(24, 11, 64, 107);
 		frame.getContentPane().add(lblNewLabel_1);
 	}
 }

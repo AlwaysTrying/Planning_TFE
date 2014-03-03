@@ -18,21 +18,33 @@ import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
+import javax.swing.ButtonGroup;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 
 public class Enseignant {
 
 	JFrame frame;
-
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	JDateChooser dateChooser;
+	JRadioButton rdbtnChoisirUneAutre;
+	JRadioButton rdbtnConfirmerLaDate;
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				
 				try {
 					Enseignant window = new Enseignant();
 					window.frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,12 +63,13 @@ public class Enseignant {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 629, 497);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Formulaire de disponibilit\u00E9 pour les soutenances TFE");
+		JLabel lblNewLabel = new JLabel("Formulaire de disponibilit\u00E9s pour les soutenances TFE");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel.setForeground(new Color(51, 153, 204));
 		lblNewLabel.setBounds(119, 42, 389, 31);
@@ -96,8 +109,9 @@ public class Enseignant {
 		JLabel lblFonctionnalitDeLenseignant = new JLabel("Fonctionnalit\u00E9 de l'enseignant");
 		lblFonctionnalitDeLenseignant.setBounds(209, 92, 153, 14);
 		panel.add(lblFonctionnalitDeLenseignant);
+	
 		
-		JPanel panel_1 = new JPanel();
+		final JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Disponibilit\u00E9s", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(51, 153, 204)));
 		panel_1.setBounds(70, 272, 470, 156);
 		frame.getContentPane().add(panel_1);
@@ -111,17 +125,45 @@ public class Enseignant {
 		lblVeuillezConfirmerLa.setBounds(10, 56, 428, 14);
 		panel_1.add(lblVeuillezConfirmerLa);
 		
-		JRadioButton rdbtnConfirmerLaDate = new JRadioButton("Confirmer la date");
+		final JDateChooser dateChooser = new JDateChooser();
+	    dateChooser.setBounds(277, 113, 161, 20);
+	    panel_1.add(dateChooser);
+		
+		final JRadioButton rdbtnConfirmerLaDate = new JRadioButton("Confirmer la date");
+		buttonGroup.add(rdbtnConfirmerLaDate);
 		rdbtnConfirmerLaDate.setBounds(92, 82, 151, 23);
 		panel_1.add(rdbtnConfirmerLaDate);
+		dateChooser.setVisible(false);
 		
-		JRadioButton rdbtnChoisirUneAutre = new JRadioButton("Choisir une autre date");
+		final JRadioButton rdbtnChoisirUneAutre = new JRadioButton("Choisir une autre date");
+		rdbtnChoisirUneAutre.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				if (rdbtnChoisirUneAutre.isSelected()==false) {
+					System.out.println("ddd");
+					 dateChooser.setVisible(false);}
+				else{System.out.println("nn");
+				     dateChooser.setVisible(true);
+				}
+
+			}
+		});
+		rdbtnChoisirUneAutre.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		rdbtnChoisirUneAutre.addMouseListener(new MouseAdapter() {
+	
+		});
+		
+			
+		buttonGroup.add(rdbtnChoisirUneAutre);
 		rdbtnChoisirUneAutre.setBounds(92, 113, 151, 23);
 		panel_1.add(rdbtnChoisirUneAutre);
 		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(277, 113, 161, 20);
-		panel_1.add(dateChooser);
+		
+		
 	}
 
 	public void setVisible(boolean b) {
