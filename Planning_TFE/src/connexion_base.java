@@ -13,14 +13,10 @@ public class connexion_base {
 	  Statement st = null;
 	  public void connexion_base() throws ClassNotFoundException, SQLException{
 	  
-		
-			// This will load the MySQL driver, each DB has its own driver
 		      Class.forName("com.mysql.jdbc.Driver");
 		      // Setup the connection with the DB
 		      connect = DriverManager.getConnection("jdbc:mysql://localhost/base?" + "user=root");
-		    
 		      System.out.println("conexion etablie avec la base");
-    
   
 	  }
 	  
@@ -28,7 +24,5 @@ public class connexion_base {
 		  st =connect.createStatement();
 		  return st;
 	  }
-	
-	  
-	  
+  
 }

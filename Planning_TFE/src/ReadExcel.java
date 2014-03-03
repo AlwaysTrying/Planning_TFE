@@ -27,14 +27,10 @@ public class ReadExcel {
 	      
 	      int nbc = sheet.getColumns(); // nbre de colonne
 	      int nbl = sheet.getRows(); // nbre de ligne
-	     
-
 	      for (int j = 2; j < nbl; j++) {
 	    	  
-	    	  for (int i = 0; i < nbc; i++) {  
-	    		  
+	    	  for (int i = 0; i < nbc; i++) {      		 
 	    		  Cell cell = sheet.getCell(i, j);
-
 	    		  matrice [j][i] = cell.getContents();
 	    	  }
   	      }
