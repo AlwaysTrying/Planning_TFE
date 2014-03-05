@@ -15,5 +15,19 @@
 	<classpathentry kind="lib" path="C:/Users/WAFA/Desktop/Dropbox/dropbox-nantes/Dropbox/PAPPLI/bibliothéque/ons/jxl-2.4.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/WAFA/Desktop/Dropbox/dropbox-nantes/Dropbox/PAPPLI/bibliothéque/ons/jxl-2.6.12-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/WAFA/Desktop/Dropbox/dropbox-nantes/Dropbox/PAPPLI/bibliothéque/ons/mysql-connector-java-5.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/choco-1_2_03.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/choco-2.1.5.zip"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/choco-solver-2.1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/choco-solver-2.1.5-with-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/choco-solver-cpviz-2.1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/jgoodies-common-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/jgoodies-looks-2.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/junit-4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/samples-2.1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/ons/jxl-2.4.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/ons/jxl-2.6.12-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/bibliothéque/ons/mysql-connector-java-5.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SAMSUNG/Dropbox/PAPPLI (1)/jcalendar-1.4.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
