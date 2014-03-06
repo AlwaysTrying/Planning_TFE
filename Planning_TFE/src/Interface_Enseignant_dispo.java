@@ -25,7 +25,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
 
-public class Enseignant1 {
+public class Interface_Enseignant_dispo {
 
 	private JFrame frame;
 
@@ -36,7 +36,7 @@ public class Enseignant1 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Enseignant1 window = new Enseignant1();
+					Interface_Enseignant_dispo window = new Interface_Enseignant_dispo();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +51,7 @@ public class Enseignant1 {
 	/**
 	 * Create the application.
 	 */
-	public Enseignant1() {
+	public Interface_Enseignant_dispo() {
 		initialize();
 	}
 

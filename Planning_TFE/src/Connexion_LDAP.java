@@ -20,7 +20,7 @@ public class Connexion_LDAP {
 	 static Hashtable env ;
 	 static DirContext ctx ;
 	 static String login;
-	 static String passwd;
+	static String passwd;
 	 static String base = "dc=ec-nantes,dc=fr";
      static String filter = "(cn~=imen)"; 
 	 public Connexion_LDAP(String login, String passwd){
@@ -28,7 +28,7 @@ public class Connexion_LDAP {
 		 this.passwd=passwd;
 	 }
 	 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings("unchecked")
 	public static void connect() throws NamingException{
 		env= new Hashtable();
 		
@@ -44,13 +44,13 @@ public class Connexion_LDAP {
 			ctx = new InitialDirContext(env);
 		// fermeture de la connexion	
 		} catch (Exception e) {
-			System.out.println("marche");
+			System.out.println("EX2");
 			e.getMessage();
 		}
 	}
 	
 	
-	 public static void getUserAttributes() throws NamingException{
+	 static void getUserAttributes() throws NamingException{
 	try{
 		
 		SearchControls sc = new SearchControls();  
@@ -58,27 +58,27 @@ public class Connexion_LDAP {
 		 sc.setSearchScope(SearchControls.SUBTREE_SCOPE);  
 		 NamingEnumeration results = null;  
 		 results = ctx.search(base, filter, sc);  
-        while (results.hasMore()) {    
-            SearchResult sr = (SearchResult) results.next();  
-            String dn = sr.getName();
-            System.out.println("Distinguished name is "+dn);
-            
-            Attributes attrs = sr.getAttributes();
-            for(NamingEnumeration ne = attrs.getAll();ne.hasMoreElements();) {
-            Attribute attr = (Attribute) ne.next();
-            String attrID = attr.getID();
-            System.out.println(attrID+" :");
-            for(Enumeration vals = attr.getAll();vals.hasMoreElements() ;){
-            System.out.println("\t"+vals.nextElement());
-            }
-            }
-            System.out.println("\n");
-            }
-           // System.out.println(sr.toString()+"\n");  
-        }
-        catch (NamingException nex) {  
+         while (results.hasMore()) {    
+             SearchResult sr = (SearchResult) results.next();  
+             String dn = sr.getName();
+             System.out.println("Distinguished name is "+dn);
              
-            System.out.println("Error: " + nex.getMessage()); }
+             Attributes attrs = sr.getAttributes();
+             for(NamingEnumeration ne = attrs.getAll();ne.hasMoreElements();) {
+             Attribute attr = (Attribute) ne.next();
+             String attrID = attr.getID();
+             System.out.println(attrID+" :");
+             for(Enumeration vals = attr.getAll();vals.hasMoreElements() ;){
+             System.out.println("\t"+vals.nextElement());
+             }
+             }
+             System.out.println("\n");
+             }
+            // System.out.println(sr.toString()+"\n");  
+         }
+         catch (NamingException nex) {  
+              
+             System.out.println("Error: " + nex.getMessage()); }
 		
 	 }
 	 
@@ -90,4 +90,16 @@ public class Connexion_LDAP {
 	public void disconnect() throws NamingException{
 		ctx.close();
 	}
+	
+	
+	
+	
+	public static void main(String[] args) throws NamingException {
+		Connexion_LDAP conn=new Connexion_LDAP("","");
+		connect();
+		getUserAttributes();
+		
+		
+	}
+
 }
