@@ -27,7 +27,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
 
-public class Enseignant {
+public class Interface_Enseignant {
 
 	JFrame frame;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -42,7 +42,7 @@ public class Enseignant {
 			public void run() {
 				
 				try {
-					Enseignant window = new Enseignant();
+					Interface_Enseignant window = new Interface_Enseignant();
 					window.frame.setVisible(true);
 					
 				} catch (Exception e) {
@@ -55,7 +55,7 @@ public class Enseignant {
 	/**
 	 * Create the application.
 	 */
-	public Enseignant() {
+	public Interface_Enseignant() {
 		initialize();
 	}
 

@@ -126,7 +126,7 @@ public class Identification {
 					if (login.equals("enseignant") && mot_de_passe.equals("enseignant"))
 					{
 					 // JOptionPane.showMessageDialog(null, "Correcte ! ");
-			            Enseignant enseignant = new Enseignant();
+			            Interface_Enseignant enseignant = new Interface_Enseignant();
 			            System.out.println("enseignant inscrit");
 			            enseignant.frame.setVisible(true);			            
 					}
