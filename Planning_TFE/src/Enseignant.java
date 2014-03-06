@@ -1,173 +1,130 @@
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JPanel;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.UIManager;
-import javax.swing.ImageIcon;
-import javax.swing.JRadioButton;
-import com.toedter.calendar.JCalendar;
-import com.toedter.calendar.JDateChooser;
-import javax.swing.ButtonGroup;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
-
+import java.sql.Date;
+import java.util.Vector;
 
 public class Enseignant {
-
-	JFrame frame;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
-	JDateChooser dateChooser;
-	JRadioButton rdbtnChoisirUneAutre;
-	JRadioButton rdbtnConfirmerLaDate;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				
-				try {
-					Enseignant window = new Enseignant();
-					window.frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public Enseignant() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 629, 497);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Formulaire de disponibilit\u00E9s pour les soutenances TFE");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setForeground(new Color(51, 153, 204));
-		lblNewLabel.setBounds(119, 42, 389, 31);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JPanel panel = new JPanel();
-		panel.setBorder(new TitledBorder(null, "G\u00E9neralit\u00E9s", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(51, 153, 204)));
-		panel.setBounds(70, 102, 470, 143);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(20, 31, 37, 47);
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\WAFA\\git\\Planning_TFE\\Planning_TFE\\src\\Icons\\personne.JPG"));
-		panel.add(lblNewLabel_1);
-		
-		JLabel lblNom = new JLabel("Nom");
-		lblNom.setBounds(99, 31, 46, 14);
-		panel.add(lblNom);
-		
-		JLabel lblPrnom = new JLabel("Pr\u00E9nom");
-		lblPrnom.setBounds(99, 64, 46, 14);
-		panel.add(lblPrnom);
-		
-		JLabel lblFonction = new JLabel("Fonction");
-		lblFonction.setBounds(99, 92, 46, 14);
-		panel.add(lblFonction);
-		
-		JLabel lblNewLabel_2 = new JLabel("Nom de l'enseignant");
-		lblNewLabel_2.setBounds(209, 31, 153, 14);
-		panel.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("Pr\u00E9nom de l'enseignant");
-		lblNewLabel_3.setBounds(209, 64, 134, 14);
-		panel.add(lblNewLabel_3);
-		
-		JLabel lblFonctionnalitDeLenseignant = new JLabel("Fonctionnalit\u00E9 de l'enseignant");
-		lblFonctionnalitDeLenseignant.setBounds(209, 92, 153, 14);
-		panel.add(lblFonctionnalitDeLenseignant);
 	
-		
-		final JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Disponibilit\u00E9s", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(51, 153, 204)));
-		panel_1.setBounds(70, 272, 470, 156);
-		frame.getContentPane().add(panel_1);
-		panel_1.setLayout(null);
-		
-		JLabel lblLaDateDe = new JLabel("La date de soutenance TFE est le .......");
-		lblLaDateDe.setBounds(10, 31, 191, 14);
-		panel_1.add(lblLaDateDe);
-		
-		JLabel lblVeuillezConfirmerLa = new JLabel("Veuillez confirmer la date ou choisir une autre date si vous ne serai pas disponible.");
-		lblVeuillezConfirmerLa.setBounds(10, 56, 428, 14);
-		panel_1.add(lblVeuillezConfirmerLa);
-		
-		final JDateChooser dateChooser = new JDateChooser();
-	    dateChooser.setBounds(277, 113, 161, 20);
-	    panel_1.add(dateChooser);
-		
-		final JRadioButton rdbtnConfirmerLaDate = new JRadioButton("Confirmer la date");
-		buttonGroup.add(rdbtnConfirmerLaDate);
-		rdbtnConfirmerLaDate.setBounds(92, 82, 151, 23);
-		panel_1.add(rdbtnConfirmerLaDate);
-		dateChooser.setVisible(false);
-		
-		final JRadioButton rdbtnChoisirUneAutre = new JRadioButton("Choisir une autre date");
-		rdbtnChoisirUneAutre.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				if (rdbtnChoisirUneAutre.isSelected()==false) {
-					System.out.println("ddd");
-					 dateChooser.setVisible(false);}
-				else{System.out.println("nn");
-				     dateChooser.setVisible(true);
-				}
 
-			}
-		});
-		rdbtnChoisirUneAutre.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		rdbtnChoisirUneAutre.addMouseListener(new MouseAdapter() {
+	protected String nomEnseignant,prenomEnseignant,fonctionEnseignant;
+	protected Date date_choisie ;
+
 	
-		});
-		
-			
-		buttonGroup.add(rdbtnChoisirUneAutre);
-		rdbtnChoisirUneAutre.setBounds(92, 113, 151, 23);
-		panel_1.add(rdbtnChoisirUneAutre);
-		
-		
-		
+	protected String []disponibilite = new String [4];
+	 
+	protected int idEnseignant;
+	
+	public Enseignant(int idEnseignant){
+		this.idEnseignant=idEnseignant;
+	
 	}
 
-	public void setVisible(boolean b) {
-		// TODO Auto-generated method stub
-		
+	public String getNomEnseignant() {
+		return nomEnseignant;
 	}
+
+	public void setNomEnseignant(String nomEnseignant) {
+		this.nomEnseignant = nomEnseignant;
+	}
+
+	public String getPrenomEnseignant() {
+		return prenomEnseignant;
+	}
+
+	public void setPrenomEnseignant(String prenomEnseignant) {
+		this.prenomEnseignant = prenomEnseignant;
+	}
+
+	public String[] getDisponibilite() {
+		return disponibilite;
+	}
+
+	public void setDisponibilite(String[] disponibilité) {
+		this.disponibilite = disponibilité;
+	}
+
+	public int getIdEnseignant() {
+		return idEnseignant;
+	}
+
+	public void setIdEnseignant(int idEnseignant) {
+		this.idEnseignant = idEnseignant;
+	}
+
+	public String getFonctionEnseignant() {
+		return fonctionEnseignant;
+	}
+
+	public void setFonctionEnseignant(String fonctionEnseignant) {
+		this.fonctionEnseignant = fonctionEnseignant;
+	}
+	
+	public Date getDate_choisie() {
+		return date_choisie;
+	}
+
+	public void setDate_choisie(Date date_choisie) {
+		this.date_choisie = date_choisie;
+	}
+
+	static int y =11;   //la taille du vecteur de disponibiliteibilité:elle depend de la durée de la soutenance->à modifier selon le besoin
+    static int i,k,l,j,m;
+    
+    /**
+	 * fonction permettant de retourner le vecteur de disponibiliteibilité de 
+	 * l'enseignant en fonction de se qu'il a introduit
+	 * @return
+	 */
+	public  int []  Creation_vecteur_dispo(){
+		
+		int k=0;
+		int [] vector= new int[y];
+		for( i=0; i<y;i++)
+		{
+			vector[i]=0;
+		}
+		
+		k=0;
+		while(k<disponibilite.length)
+		{
+			int x= Integer.parseInt(disponibilite[k]);
+			int y= Integer.parseInt(disponibilite[k+1]);
+			l=x-8;
+			j=y-8;
+			if(l>0 &&j>0)
+			{
+			for(m=l;m<j;m++)
+			vector[m]=1;
+			k=k+2;
+			}
+		}
+		return vector;
+	}
+	
+	public static int[] initialisation (int[] tab)
+	{
+		for(i=0;i<y;i++)
+			tab[i]=0;
+		return tab;
+	}
+	 
+	/**
+	 * fonctionn de jointure avec un autre enseignant E2
+	 * @param e2
+	 * @return  int[]
+	 */
+	public  int[] jointure_enseignant(Enseignant e2)
+	{
+		
+		int[] enseignant2= e2.Creation_vecteur_dispo();
+		int[] vecteur_en1_en2 = new int[y];
+		vecteur_en1_en2=initialisation(vecteur_en1_en2);
+		for(i=1;i<y;i++)
+		{
+			if(this.Creation_vecteur_dispo()[i]==1 && enseignant2[i]==1)
+				vecteur_en1_en2[i]=1;
+			else vecteur_en1_en2[i]=0;
+		}
+		
+		return vecteur_en1_en2;
+	}
+	
 }
