@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="C:/Users/WAFA/Desktop/Dropbox/dropbox-nantes/Dropbox/PAPPLI/bibliothéque/ons/jxl-2.4.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/WAFA/Desktop/Dropbox/dropbox-nantes/Dropbox/PAPPLI/bibliothéque/ons/jxl-2.6.12-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/WAFA/Desktop/Dropbox/dropbox-nantes/Dropbox/PAPPLI/bibliothéque/ons/mysql-connector-java-5.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/WAFA/Desktop/_kRois_choco-2.0.0.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

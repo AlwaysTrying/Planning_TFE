@@ -98,6 +98,9 @@ public class Sodoco {
       IntVar[] bufIntVarsInternalSquare = new IntVar[CHOKODOKU_SIZE*CHOKODOKU_SIZE];
       for( int j = 0; j < 9; j++){
         bufIntVarsRow[j]   = myPbVars[ i*CHOKODOKU_SIZE*CHOKODOKU_SIZE + j ];
+//        for(int k=0; k<bufIntVarsRow.length;k++)
+//        	System.out.println(bufIntVarsRow[k]);
+//        System.out.println("*****");
         bufIntVarsColumn[j] = myPbVars[ j*CHOKODOKU_SIZE*CHOKODOKU_SIZE + i ];
         bufIntVarsInternalSquare[j]   = myPbVars[ (i%CHOKODOKU_SIZE)*CHOKODOKU_SIZE +
                                           j%CHOKODOKU_SIZE +
@@ -131,5 +134,6 @@ public class Sodoco {
       }
       System.out.println();
     }
+    System.out.println("**"+CHOKODOKU_SIZE);
   }
 }
