@@ -154,11 +154,13 @@ public class Responsable1_Importer_donnes {
 				
 				try {
 					test.read();
-					String matrice [][]  = new String [50][7];
+					int nbl = test.get_nbreligne_fichier();
+					int nbc = test.get_nbrecolonne_fichier();
+					String matrice [][]  = new String [nbl][nbc];
 					matrice = test.get_matrice();
 					
-					i.insertion_matrice(matrice,st);
-					
+					i.insertion_matrice(matrice,st,nbl);
+					///
 					
 					
 				} catch (IOException e) {
@@ -192,8 +194,8 @@ public class Responsable1_Importer_donnes {
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblVeuillezIndiquerLe = new JLabel("Veuillez indiquer le chemin du fichier contenant les donn\u00E9es des \u00E9leves");
-		lblVeuillezIndiquerLe.setBounds(10, 11, 352, 67);
-		panel_1.add(lblVeuillezIndiquerLe);
+		JLabel labelinfo = new JLabel("Veuillez indiquer le chemin du fichier contenant les donn\u00E9es des \u00E9leves");
+		labelinfo.setBounds(10, 11, 352, 67);
+		panel_1.add(labelinfo);
 	}
 }

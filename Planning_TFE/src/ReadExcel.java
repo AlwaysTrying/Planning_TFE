@@ -15,7 +15,7 @@ public class ReadExcel {
 	    this.inputFile = inputFile;
 	  }
 
-	  String matrice [][] = new String [45][7]; 
+	  public  String matrice [][] ; 
 	  
 	  public void read() throws IOException  {
 	    File inputWorkbook = new File(inputFile);
@@ -27,6 +27,8 @@ public class ReadExcel {
 	      
 	      int nbc = sheet.getColumns(); // nbre de colonne
 	      int nbl = sheet.getRows(); // nbre de ligne
+	      matrice = new String [nbl-2][nbc]; 
+	      
 	      for (int j = 2; j < nbl; j++) {
 	    	  
 	    	  for (int i = 0; i < nbc; i++) {      		 
@@ -43,6 +45,13 @@ public class ReadExcel {
 	public String [][] get_matrice() {
 		return matrice;
 		
+	}
+	
+	public int get_nbreligne_fichier(){
+		return ( matrice.length);
+	}
+	public int get_nbrecolonne_fichier(){
+		return ( matrice[0].length);
 	}
 
 
