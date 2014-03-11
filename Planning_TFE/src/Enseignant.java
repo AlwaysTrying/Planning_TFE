@@ -89,7 +89,7 @@ public class Enseignant {
 			int y= Integer.parseInt(disponibilite[k+1]);
 			l=x-8;
 			j=y-8;
-			if(l>0 &&j>0)
+			if(l>=0 &&j>=0)
 			{
 			for(m=l;m<j;m++)
 			vector[m]=1;
@@ -107,7 +107,7 @@ public class Enseignant {
 	}
 	 
 	/**
-	 * fonctionn de jointure avec un autre enseignant E2
+	 * fonction de jointure avec un autre enseignant E2
 	 * @param e2
 	 * @return  int[]
 	 */
@@ -125,6 +125,104 @@ public class Enseignant {
 		}
 		
 		return vecteur_en1_en2;
+	}
+	/**
+	 * fonction qui retourne une matrice contient la dispo de chaque etudiants (vecteur c la dispo de 
+	 * l encadreur qui a nbre etudaint en commun
+	 * @param y
+	 * @param vecteur
+	 * @param nbr_etudiant
+	 * @return
+	 */
+	public static int[][] matrice_diponibilite_encadrant_etudiant( int y, int []  vecteur, int nbr_etudiant){
+		
+		int [][] matrice_dispo = new int [y][nbr_etudiant];
+		int j =0;
+		for (int i =0 ; i<vecteur.length;i++){
+			
+			if (vecteur[i]==1){
+				matrice_dispo[i][j]=vecteur[i];
+				j++;
+			}
+			if (j == nbr_etudiant ) j=0;
+		}
+		return matrice_dispo;
+	}
+	
+	
+	
+	/**
+	 * fonction qui permet de retourner la dispo d'un etudiant à partir de  la matrice commune 
+	 * @return
+	 */
+	public static int[] dispo_etudiant_from_matrice (int[][] matrice , int x){
+		int[] vect = new int[matrice.length];
+		for (int i = 0 ; i<matrice.length ; i++){
+			vect[i] = matrice[i][x];
+		}
+		return vect;
+	}
+	/**
+	 * fonction permet de retourner un vectuer de int qui contient la disponibilité aprés élémination de la disponibilité à l'indice "x" 
+	 * @param vecteur
+	 * @param x
+	 * @return vecteur de disponibilitée
+	 */
+	public static int[]dispo_moins_vecteur(int []  vecteur, int x){
+		int [] vect = new int [vecteur.length];
+		for (int i = 0 ;i<vecteur.length ;i++){
+			vect[i] =vecteur[i];
+		}
+		vect [x]=0;
+		return vect;
+	}
+
+	public static int[] dispo_total_possible(int []  vecteur){
+		/// calculer le nbre des 1 dans le vecteur 
+		int n =0;
+		for (int i = 0; i<vecteur.length;i++){
+			if (vecteur[i]==1) n++;
+		}
+		//System.out.println("n="+n);
+		
+		//// un tableau qui contient tous les dispos possibles (en tenant compte des dispo en paralléle)
+		int[] tab = new int [n];
+		int[] dispo = new int [n*3];
+		int j=0;
+		for (int i = 0; i<vecteur.length ; i++){
+				if (vecteur[i]==1) {
+					tab[j]=i; j++;
+				}
+		}
+		int[] tab1 = new int [n];
+		
+		for (int i = 0; i<tab.length ; i++){
+			tab1[i]= tab[i]+11;
+	}
+		int[] tab2 = new int [n];
+		for (int i = 0; i<tab.length ; i++){
+			tab2[i]= tab1[i]+11;
+	}
+		 /// concatenation des 3 tableaux
+	
+		for (int i = 0 ;i< tab.length ;i++){
+			if (i<n){
+				dispo[i]= tab[i];
+				
+			}
+		}
+			for (int i = 0 ;i< tab1.length ;i++){
+			
+					dispo[i+n]= tab1[i];
+						
+			}		
+			for (int i = 0 ;i< tab2.length ;i++){
+				
+				dispo[i+2*n]= tab2[i];
+					
+		}
+	
+		return dispo;
 	}
 	
 }

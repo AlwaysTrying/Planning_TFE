@@ -1,8 +1,25 @@
 
 public class Etudiant {
+	int y=11; //nombre de creneau possible
 	
 	protected String nomEtudiant,prenomEtudiant,sujetEtudiant;
-	protected int idEtudiant,idEntreprise,idEnseignant,idSoutenance;
+	protected int idEtudiant=0,idEntreprise,idEnseignant,idSoutenance;
+	protected int[] dispo_etudiant= new int[y];
+	
+	/**
+	 * constrcteur de la classe
+	 */
+
+	public int[] getDispo_etudiant() {
+		return dispo_etudiant;
+	}
+
+
+	public void setDispo_etudiant(int[] dispo_etudiant) {
+		this.dispo_etudiant = dispo_etudiant;
+	}
+
+
 	
 	public Etudiant(int idEtudiant){
 		this.idEtudiant=idEtudiant;
